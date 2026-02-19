@@ -1,26 +1,42 @@
 import Image from "next/image";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div>
-      <h2>地域の未来をつくる建設会社</h2>
+    <div className={styles.container}>
+      
+      <section className={styles.hero}>
+        <Image
+          src="/company.jpg"
+          alt="会社外観"
+          fill
+          style={{ objectFit: "cover" }}
+        />
+        <div className={styles.heroText}>
+          <h1>未来をつくる建設会社</h1>
+          <p>地域とともに歩む、確かな技術力</p>
+          <button className={styles.cta}>お問い合わせ</button>
+        </div>
+      </section>
 
-      <Image
-        src="/company.jpg"
-        alt="会社イメージ"
-        width={1200}
-        height={600}
-        style={{
-          width: "100%",
-          height: "auto",
-          borderRadius: "8px"
-        }}
-      />
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>事業内容</h2>
+        <div className={styles.grid}>
+          <div className={styles.card}>
+            <h3>新築工事</h3>
+            <p>安全・高品質な施工を提供します。</p>
+          </div>
+          <div className={styles.card}>
+            <h3>リフォーム</h3>
+            <p>暮らしを快適にする改修工事。</p>
+          </div>
+          <div className={styles.card}>
+            <h3>公共工事</h3>
+            <p>地域社会に貢献するインフラ整備。</p>
+          </div>
+        </div>
+      </section>
 
-      <p>
-        私たちは地域密着型の土木建築会社です。
-        公共工事・民間工事まで幅広く対応しています。
-      </p>
     </div>
   );
 }
