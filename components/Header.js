@@ -1,13 +1,30 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
     <header style={styles.header}>
-      <h1 style={styles.logo}>株式会社サンプル建設</h1>
-      <nav>
-        <Link href="/" style={styles.link}>ホーム</Link>
-        <Link href="/about" style={styles.link}>会社概要</Link>
-        <Link href="/contact" style={styles.link}>お問い合わせ</Link>
+      <div style={styles.topRow}>
+        <h1 style={styles.logo}>株式会社サンプル建設</h1>
+
+        <button
+          style={styles.menuButton}
+          onClick={() => setOpen(!open)}
+        >
+          ☰
+        </button>
+      </div>
+
+      <nav style={{
+        ...styles.nav,
+        display: open ? "flex" : ""
+      }}>
+        <Link href="/">ホーム</Link>
+        <Link href="/about">会社概要</Link>
+        <Link href="/contact">お問い合わせ</Link>
       </nav>
     </header>
   );
@@ -15,18 +32,29 @@ export default function Header() {
 
 const styles = {
   header: {
+    backgroundColor: "#003366",
+    color: "white",
+    padding: "10px 20px"
+  },
+  topRow: {
     display: "flex",
     justifyContent: "space-between",
-    padding: "15px 30px",
-    backgroundColor: "#003366",
-    color: "white"
+    alignItems: "center"
   },
   logo: {
-    margin: 0
+    fontSize: "18px"
   },
-  link: {
-    marginLeft: "20px",
+  menuButton: {
+    fontSize: "24px",
+    background: "none",
+    border: "none",
     color: "white",
-    textDecoration: "none"
+    cursor: "pointer"
+  },
+  nav: {
+    display: "none",
+    flexDirection: "column",
+    gap: "10px",
+    marginTop: "10px"
   }
 };

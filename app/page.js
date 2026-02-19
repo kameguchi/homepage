@@ -8,9 +8,13 @@ export default function Home() {
       <Image
         src="/company.jpg"
         alt="会社イメージ"
-        width={800}
-        height={400}
-        style={{ borderRadius: "8px" }}
+        width={1200}
+        height={600}
+        style={{
+          width: "100%",
+          height: "auto",
+          borderRadius: "8px"
+        }}
       />
 
       <p>

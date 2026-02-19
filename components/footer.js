@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer style={styles.footer}>
-      <p>© 2026 株式会社サンプル建設</p>
+      <p>2026 株式会社サンプル建設</p>
     </footer>
   );
 }

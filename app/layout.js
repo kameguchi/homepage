@@ -6,12 +6,21 @@ export const metadata = {
   description: "地域密着の土木建築会社です"
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="ja">
       <body style={{ margin: 0, fontFamily: "sans-serif" }}>
         <Header />
-        <main style={{ padding: "30px" }}>
+        <main style={{
+          padding: "20px",
+          maxWidth: "1000px",
+          margin: "0 auto"
+        }}>
           {children}
         </main>
         <Footer />
