@@ -10,11 +10,12 @@ export default function Home() {
           src="/company.jpg"
           alt="会社外観"
           fill
-          className="object-cover"
+          className="object-cover -z-10"
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        {/* 黒オーバーレイ */}
+        <div className="absolute inset-0 bg-black/50 -z-10"></div>
 
-        <div className="relative z-10 text-center px-6">
+        <div className="relative z-10 text-center px-6 z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             未来をつくる建設会社
           </h1>
