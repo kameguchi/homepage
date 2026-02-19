@@ -3,19 +3,20 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="font-sans text-gray-800">
-      
+
       {/* Hero */}
       <section className="relative h-screen flex items-center justify-center text-white">
         <Image
           src="/company.jpg"
           alt="会社外観"
           fill
-          className="object-cover -z-10"
+          className="object-cover -z-0"
         />
         {/* 黒オーバーレイ */}
         <div className="absolute inset-0 bg-black/50 -z-10"></div>
 
-        <div className="relative z-10 text-center px-6 z-10">
+        {/* テキスト */}
+        <div className="relative z-10 text-center px-6 z-20">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             未来をつくる建設会社
           </h1>
