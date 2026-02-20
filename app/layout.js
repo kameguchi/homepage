@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import "./globals.css";
 
 export const metadata = {
   title: "株式会社サンプル建設",
