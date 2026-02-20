@@ -14,28 +14,28 @@ export default function Header() {
         </Link>
 
         {/* ナビ */}
-        <nav className="flex gap-8 items-center text-sm tracking-wider">
+        <nav className="flex items-center text-[10px]">
           <Link
             href="/"
-            className="px-6 hover:text-gray-600 transition-colors duration-300"
+            className="px-16 hover:text-brand-accent transition-colors duration-300"
           >
             ホーム
           </Link>
 
-          <span className="h-4 w-px bg-gray-600"></span>
+          <span className="h-3 w-px bg-gray-500 opacity-50"></span>
 
           <Link
             href="/about"
-            className="px-6 hover:text-gray-600 transition-colors duration-300"
+            className="px-16 hover:text-brand-accent transition-colors duration-300"
           >
             会社概要
           </Link>
 
-          <span className="h-4 w-px bg-gray-600"></span>
+          <span className="h-3 w-px bg-gray-500 opacity-50"></span>
 
           <Link
             href="/contact"
-            className="px-6 hover:text-gray-600 transition-colors duration-300"
+            className="px-16 hover:text-brand-accent transition-colors duration-300"
           >
             お問い合わせ
           </Link>
