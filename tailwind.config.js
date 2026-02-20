@@ -8,10 +8,10 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          primary: "#0f172a",
+          primary: "#9fb1dd",
           accent: "#c6a75e",
-          light: "#f8f6f2",
-          text: "#1e293b",
+          light: "#80ecc8",
+          text: "#19a12b",
           sub: "#94a3b8",
         },
       },
