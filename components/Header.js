@@ -1,60 +1,47 @@
-"use client";
-import { useState } from "react";
 import Link from "next/link";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
-
   return (
-    <header style={styles.header}>
-      <div style={styles.topRow}>
-        <h1 style={styles.logo}>株式会社サンプル建設</h1>
-
-        <button
-          style={styles.menuButton}
-          onClick={() => setOpen(!open)}
+    <header className="bg-[#0f172a] text-white border-b border-gray-700">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
+        
+        {/* ロゴ */}
+        <Link
+          href="/"
+          className="text-xl font-semibold tracking-widest"
         >
-          ☰
-        </button>
-      </div>
+          株式会社サンプル建設
+        </Link>
 
-      <nav style={{
-        ...styles.nav,
-        display: open ? "flex" : ""
-      }}>
-        <Link href="/">ホーム</Link>
-        <Link href="/about">会社概要</Link>
-        <Link href="/contact">お問い合わせ</Link>
-      </nav>
+        {/* ナビ */}
+        <nav className="flex items-center text-sm tracking-wider">
+          <Link
+            href="/"
+            className="px-6 hover:text-gray-300 transition-colors duration-300"
+          >
+            ホーム
+          </Link>
+
+          <span className="h-4 w-px bg-gray-600"></span>
+
+          <Link
+            href="/about"
+            className="px-6 hover:text-gray-300 transition-colors duration-300"
+          >
+            会社概要
+          </Link>
+
+          <span className="h-4 w-px bg-gray-600"></span>
+
+          <Link
+            href="/contact"
+            className="px-6 hover:text-gray-300 transition-colors duration-300"
+          >
+            お問い合わせ
+          </Link>
+        </nav>
+
+      </div>
     </header>
   );
 }
-
-const styles = {
-  header: {
-    backgroundColor: "#003366",
-    color: "white",
-    padding: "10px 20px"
-  },
-  topRow: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
-  logo: {
-    fontSize: "18px"
-  },
-  menuButton: {
-    fontSize: "24px",
-    background: "none",
-    border: "none",
-    color: "white",
-    cursor: "pointer"
-  },
-  nav: {
-    display: "none",
-    flexDirection: "column",
-    gap: "10px",
-    marginTop: "10px"
-  }
-};
