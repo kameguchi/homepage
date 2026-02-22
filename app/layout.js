@@ -15,13 +15,9 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ja">
-      <body style={{ margin: 0, fontFamily: "sans-serif" }}>
+      <body className="m-0 font-sans bg-white">
         <Header />
-        <main style={{
-          padding: "20px",
-          maxWidth: "1000px",
-          margin: "0 auto"
-        }}>
+        <main className="w-full">
           {children}
         </main>
         <Footer />
