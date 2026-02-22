@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PageHero from "../../components/PageHero";
 import { getCurrentTenant } from "../../lib/tenant";
 
@@ -12,6 +13,19 @@ export default async function About() {
   return (
     <div>
       <PageHero title="会社概要" lead="地域社会に寄り添い、確かな品質で未来を築きます。" />
+
+      <section className="px-6 py-4 bg-[var(--color-surface)]">
+        <div className="relative max-w-5xl mx-auto aspect-[16/7] overflow-hidden border border-black/5">
+          <Image
+            src="/company2.jpg"
+            alt="会社外観"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 1280px) 92vw, 1152px"
+          />
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
+      </section>
 
       <section className="py-16 px-6 bg-[var(--color-surface)]">
         <div className="max-w-5xl mx-auto bg-white rounded-xl shadow border border-black/5 overflow-hidden">
