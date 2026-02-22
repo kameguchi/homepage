@@ -1,5 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ThemeProvider from "../components/ThemeProvider";
+import { getCurrentTenant } from "../lib/tenant";
 import "./globals.css";
 
 export const metadata = {
@@ -12,15 +14,19 @@ export const viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const tenant = await getCurrentTenant();
+
   return (
     <html lang="ja">
-      <body className="m-0 font-sans bg-white">
-        <Header />
-        <main className="w-full">
-          {children}
-        </main>
-        <Footer />
+      <body className="m-0 font-sans bg-[var(--color-bg)] text-[var(--color-text)]">
+        <ThemeProvider initialTheme={tenant.theme}>
+          <Header tenant={tenant} />
+          <main className="w-full">
+            {children}
+          </main>
+          <Footer tenant={tenant} />
+        </ThemeProvider>
       </body>
     </html>
   );

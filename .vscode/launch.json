@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Next.js: フルスタック",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npm run dev",
+            "cwd": "${workspaceFolder}",
+            "serverReadyAction": {
+                "action": "debugWithChrome",
+                "pattern": "- Local:\\s+(https?://.+)",
+                "uriFormat": "%s",
+                "webRoot": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Next.js: サーバーのみ",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npm run dev",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Next.js: クライアントのみ (Chrome)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}

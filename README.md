@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 株式会社サンプル建設 コーポレートサイト
 
-## Getting Started
+建築会社向けのサンプルサイトです。現在は `app/page.js`（ホーム）を基準に、下層ページのデザイン統一を進めています。
 
-First, run the development server:
+## 実装済み機能
+
+- デザイン即時切替（`classic` / `modern` / `minimal`）
+- テーマ保持（`?theme=` クエリ + `localStorage`）
+- 全ページ統一デザイン（home/about/contact、header/footer）
+- ドメイン別テナント切替（1サーバーで複数顧客を配信）
+
+## フォルダ構成（運用対応）
+
+- `app/` : 画面ルート
+- `components/` : 共通UI（`ThemeProvider` / `ThemeSwitcher` / `PageHero`）
+- `data/tenants.js` : テナント設定（ドメイン・サイト情報・初期テーマ）
+- `lib/tenant.js` : ドメインからテナントを解決するユーティリティ
+- `docs/tenant-onboarding.md` : 新規顧客追加手順
+
+## 使い方
+
+- デザイン切替: ヘッダー右上の `Design` セレクトを変更
+- 直接指定: `http://localhost:3000/?theme=modern`
+- テナント追加: [docs/tenant-onboarding.md](docs/tenant-onboarding.md) の手順に沿って `data/tenants.js` を更新
+
+## TODO
+
+### 全ページのデザイン統合（ホーム基準）
+
+- [x] `app/about/page.js` をホームと同じトーン（余白・タイポグラフィ・カード/セクション設計）に統一する
+- [x] `app/contact/page.js` をホームと同じトーン（セクション見出し・導線ボタン・情報ブロック）に統一する
+- [x] `components/Header.js` / `components/Footer.js` と下層ページの配色・文字階層を合わせる
+- [x] インラインスタイル（`about` ページの `styles`）をTailwindクラスへ置き換える
+- [ ] 共通セクション用のコンポーネント化（例：`SectionTitle`、`ContentCard`）を検討し重複を削減する
+
+### ブラッシュアップ提案
+
+- [ ] 各ページ先頭に共通のページヒーロー（背景画像 + ページタイトル + リード文）を導入する
+- [ ] 企業らしさを強めるため、施工実績への導線（CTA）を各ページ下部に固定配置する
+- [ ] ブランドカラー使用ルールを整理（メイン/アクセント/補助）し、視認性を統一する
+- [ ] モバイル時の可読性改善（行間・余白・ボタンサイズ）を最終調整する
+
+### 提案用：複数デザイン即時切替機能
+
+- [x] デザインバリエーション（例：`classic` / `modern` / `minimal`）をテーマとして定義する
+- [x] 共通レイアウト・共通コンポーネントをテーマトークン参照に置き換え、デザイン差分を集約する
+- [x] ヘッダーにデザイン切替UI（セレクトまたはトグル）を追加し、画面更新なしで即時反映する
+- [x] URLクエリまたはCookie/LocalStorageで選択テーマを保持し、ページ遷移後も同一デザインを維持する
+- [ ] 非エンジニア向けに、管理用設定ファイル（例：`theme.config.json`）のみで候補を追加・切替できる構成を検討する
+- [ ] 「コード修正なしで提案切替」を実現するため、切替手順を簡易ドキュメント化する
+
+### 商用運用対応（Render / 複数ドメイン / 複数ユーザー管理）
+
+- [ ] 商用受注を前提に、`apps` / `packages` などのモノレポ構成への移行方針を策定する
+- [x] 1サーバー運用を想定し、ホスト名（ドメイン）で顧客サイトを切り替えるマルチテナント構成を設計する
+- [x] テナントごとの設定（サイト名・ロゴ・配色・連絡先・公開可否）を `tenant.config`（DBまたはJSON）で管理する
+- [x] ルーティング層でドメイン→テナント解決を行い、共通コードで複数顧客サイトを配信できるようにする
+- [x] テナント別アセット配置ルール（`public/tenants/{tenantId}` など）を定義し、フォルダ構成を標準化する
+- [ ] 管理者/運用者/閲覧者などのロール設計を行い、複数ユーザー管理に対応した認可方針を整理する
+- [ ] Renderデプロイ前提で、環境変数・カスタムドメイン設定・プレビュー/本番運用フローを文書化する
+- [x] 新規顧客追加時に「コード修正なし」で初期セットアップできるオンボーディング手順を整備する
+
+## 開発
+
+開発サーバー起動:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで `http://localhost:3000` を開いて確認します。
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
