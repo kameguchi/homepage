@@ -2,20 +2,20 @@ import Link from "next/link";
 
 export default function Footer({ tenant }) {
   return (
-    <footer className="bg-brand-primary text-gray-300 mt-24">
+    <footer className="bg-[var(--color-primary)] text-[var(--color-sub)] mt-24">
       <div className="max-w-7xl mx-auto px-8 py-12 grid md:grid-cols-3 gap-8">
 
         <div>
-          <h3 className="text-gray-500 md:text-2xl font-semibold mb-4 tracking-wider">
+          <h3 className="text-white md:text-2xl font-semibold mb-4 tracking-wider">
             {tenant?.siteName || "株式会社サンプル建設"}
           </h3>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-[var(--color-sub)]">
             {tenant?.catchcopy || "地域とともに歩む、確かな技術力。"}
           </p>
         </div>
 
         <div>
-          <h4 className="text-gray-500 mb-4 text-sm tracking-widest">
+          <h4 className="text-[var(--color-sub)] mb-4 text-sm tracking-widest">
             MENU
           </h4>
           <ul className="space-y-2 text-sm">
@@ -26,7 +26,7 @@ export default function Footer({ tenant }) {
         </div>
 
         <div>
-          <h4 className="text-gray-500 mb-4 text-sm tracking-widest">
+          <h4 className="text-[var(--color-sub)] mb-4 text-sm tracking-widest">
             CONTACT
           </h4>
           <p className="text-sm">{tenant?.address || "東京都〇〇区〇〇1-2-3"}</p>
@@ -36,7 +36,7 @@ export default function Footer({ tenant }) {
 
       </div>
 
-      <div className="border-t border-white/20 text-center text-xs py-6 text-gray-400">
+      <div className="border-t border-white/20 text-center text-xs py-6 text-[var(--color-sub)]">
         © 2026 SAMPLE CONSTRUCTION CO.
       </div>
     </footer>

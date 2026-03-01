@@ -14,17 +14,17 @@ export default async function Contact() {
       <PageHero title="お問い合わせ" lead="ご依頼・ご相談はお気軽にご連絡ください。" />
 
       <section className="py-16 px-6 bg-[var(--color-surface)]">
-        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow border border-black/5 p-8 md:p-10">
+        <div className="max-w-4xl mx-auto bg-[var(--color-elevated)] rounded-xl shadow border border-[var(--color-border)] p-8 md:p-10">
           <p className="text-base md:text-lg mb-6">
             新築工事、リフォーム、公共工事に関するご相談を受け付けています。
           </p>
 
           <div className="grid md:grid-cols-2 gap-4 text-sm md:text-base">
-            <div className="rounded-lg bg-gray-50 p-4 border border-gray-200">
+            <div className="rounded-lg bg-[var(--color-surface)] p-4 border border-[var(--color-border)]">
               <p className="font-semibold mb-1">メール</p>
               <p>{tenant.email}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 p-4 border border-gray-200">
+            <div className="rounded-lg bg-[var(--color-surface)] p-4 border border-[var(--color-border)]">
               <p className="font-semibold mb-1">電話</p>
               <p>{tenant.phone}</p>
             </div>

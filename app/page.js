@@ -17,7 +17,7 @@ export default async function Home() {
           className="object-cover"
         />
         {/* 黒オーバーレイ */}
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 hero-overlay"></div>
 
         {/* テキスト */}
         <div className="relative z-10 text-center px-6">
@@ -38,17 +38,17 @@ export default async function Home() {
         <h2 className="text-3xl font-bold mb-12">事業内容</h2>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition border border-black/5">
+          <div className="bg-[var(--color-elevated)] p-8 rounded-xl shadow hover:shadow-lg transition border border-[var(--color-border)]">
             <h3 className="text-xl font-semibold mb-4">新築工事</h3>
             <p>安全・高品質な施工を提供します。</p>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition border border-black/5">
+          <div className="bg-[var(--color-elevated)] p-8 rounded-xl shadow hover:shadow-lg transition border border-[var(--color-border)]">
             <h3 className="text-xl font-semibold mb-4">リフォーム</h3>
             <p>暮らしを快適にする改修工事。</p>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition border border-black/5">
+          <div className="bg-[var(--color-elevated)] p-8 rounded-xl shadow hover:shadow-lg transition border border-[var(--color-border)]">
             <h3 className="text-xl font-semibold mb-4">公共工事</h3>
             <p>地域社会に貢献するインフラ整備。</p>
           </div>
