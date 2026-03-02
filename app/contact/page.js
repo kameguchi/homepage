@@ -13,7 +13,7 @@ export default async function Contact() {
     <div>
       <PageHero title="お問い合わせ" lead="ご依頼・ご相談はお気軽にご連絡ください。" />
 
-      <section className="py-16 px-6 bg-[var(--color-surface)]">
+      <section className="py-[var(--section-padding-y)] px-[var(--section-padding-x)] bg-[var(--color-surface)]">
         <div className="max-w-4xl mx-auto bg-[var(--color-elevated)] rounded-xl shadow border border-[var(--color-border)] p-8 md:p-10">
           <p className="text-base md:text-lg mb-6">
             新築工事、リフォーム、公共工事に関するご相談を受け付けています。

@@ -14,7 +14,7 @@ export default async function About() {
     <div>
       <PageHero title="会社概要" lead="地域社会に寄り添い、確かな品質で未来を築きます。" />
 
-      <section className="px-6 py-4 bg-[var(--color-surface)]">
+      <section className="px-[var(--section-padding-x)] py-[var(--section-padding-y)] bg-[var(--color-surface)]">
         <div className="relative max-w-5xl mx-auto aspect-[16/7] overflow-hidden border border-[var(--color-border)]">
           <Image
             src="/company2.jpg"
@@ -27,7 +27,7 @@ export default async function About() {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-[var(--color-surface)]">
+      <section className="py-[var(--section-padding-y)] px-[var(--section-padding-x)] bg-[var(--color-surface)]">
         <div className="max-w-5xl mx-auto bg-[var(--color-elevated)] rounded-xl shadow border border-[var(--color-border)] overflow-hidden">
           <table className="w-full border-collapse text-sm md:text-base">
             <tbody>

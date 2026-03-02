@@ -6,7 +6,7 @@ import ThemeSwitcher from "./ThemeSwitcher";
 export default function Header({ tenant }) {
   return (
     <header className="bg-[var(--color-primary)] text-white border-b border-white/20">
-      <div className="w-full flex flex-col md:flex-row justify-between items-center px-6 py-4 gap-4">
+      <div className="w-full flex flex-col md:flex-row justify-between items-center px-[var(--section-padding-x)] py-[var(--header-padding-y)] gap-[var(--nav-gap)]">
 
         {/* ロゴ */}
         <Link
