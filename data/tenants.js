@@ -15,10 +15,10 @@ export const tenants = [
     workDetails3: "土木・建築工事一式",
     workDetails4: "不動産活用支援",
     businessItems: [
-      { title: "太陽光発電所EPC", subtitle: "設計・調達・施工" },
-      { title: "系統用蓄電池事業", subtitle: "再生可能エネルギーの安定化をサポート" },
-      { title: "土木・建築工事一式", subtitle: "インフラから建築までトータル対応" },
-      { title: "不動産活用支援", subtitle: "土地資産の最適化をお手伝い" }
+      { title: "太陽光発電所EPC", subtitle: "設計・調達・施工", icon: "sun" },
+      { title: "系統用蓄電池事業", subtitle: "再生可能エネルギーの安定化をサポート", icon: "battery" },
+      { title: "土木・建築工事一式", subtitle: "インフラから建築までトータル対応", icon: "building" },
+      { title: "不動産活用支援", subtitle: "土地資産の最適化をお手伝い", icon: "home" }
     ],
     description: `株式会社TOMは、持続可能なエネルギー社会の実現に向けて、太陽光発電と蓄電池技術を核とした総合的なソリューションを提供しています。
 豊富な実績と確かな技術力により、お客様のニーズに最適な再生可能エネルギーシステムをご提案いたします。`,
