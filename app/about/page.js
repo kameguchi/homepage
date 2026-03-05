@@ -3,8 +3,8 @@ import PageHero from "../../components/PageHero";
 import { getCurrentTenant } from "../../lib/tenant";
 
 export const metadata = {
-  title: "会社概要 | 株式会社サンプル建設",
-  description: "株式会社サンプル建設の会社概要ページです。"
+  title: "会社概要 | 株式会社TOM",
+  description: "株式会社TOMの会社概要ページです。"
 };
 
 export default async function About() {
@@ -36,23 +36,48 @@ export default async function About() {
                 <td className="px-6 py-4">{tenant.siteName}</td>
               </tr>
               <tr className="border-b border-[var(--color-border)]">
-                <th className="text-left px-6 py-4 bg-[var(--color-surface)]">設立</th>
-                <td className="px-6 py-4">2000年4月</td>
-              </tr>
-              <tr className="border-b border-[var(--color-border)]">
                 <th className="text-left px-6 py-4 bg-[var(--color-surface)]">所在地</th>
-                <td className="px-6 py-4">東京都〇〇区〇〇1-1-1</td>
+                <td className="px-6 py-4">{tenant.address}</td>
               </tr>
               <tr className="border-b border-[var(--color-border)]">
-                <th className="text-left px-6 py-4 bg-[var(--color-surface)]">代表取締役</th>
-                <td className="px-6 py-4">山田 太郎</td>
+                <th className="text-left px-6 py-4 bg-[var(--color-surface)]">設立</th>
+                <td className="px-6 py-4">{tenant.since}</td>
               </tr>
               <tr>
-                <th className="text-left px-6 py-4 bg-[var(--color-surface)]">事業内容</th>
-                <td className="px-6 py-4">土木工事・建築工事・舗装工事</td>
+                <th className="text-left px-6 py-4 bg-[var(--color-surface)]">
+                  資本金
+                </th>
+                <td className="px-6 py-4">1,000万円</td>
+              </tr>
+              <tr className="border-b border-[var(--color-border)]">
+                <th className="text-left px-6 py-4 bg-[var(--color-surface)]">
+                  代表取締役
+                </th>
+                <td className="px-6 py-4">{tenant.nameCeo}</td>
+              </tr>
+              <tr>
+                <th className="text-left px-6 py-4 bg-[var(--color-surface)]">
+                  事業内容
+                </th>
+                <td className="px-6 py-4">
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>{tenant.workDetails1}</li>
+                    <li>{tenant.workDetails2}</li>
+                    <li>{tenant.workDetails3}</li>
+                    <li>{tenant.workDetails4}</li>
+                  </ul>
+                </td>
               </tr>
             </tbody>
           </table>
+        </div>
+      </section>
+      <section className="mt-8 max-w-5xl mx-auto md:flex gap-6 items-start">
+        <div className="md:w-1/4">
+          <Image src="/company4.jpg" alt="" width={120} height={120} />
+        </div>
+        <div className="md:w-3/4 prose whitespace-pre-line">
+          {tenant.description}
         </div>
       </section>
     </div>

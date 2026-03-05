@@ -13,7 +13,7 @@ export default function Header({ tenant }) {
           href="/"
           className="text-lg md:text-xl font-semibold tracking-widest"
         >
-          {tenant?.siteName || "株式会社サンプル建設"}
+          {tenant?.siteName || "株式会社TOM"}
         </Link>
 
         {/* ナビ */}
@@ -23,6 +23,20 @@ export default function Header({ tenant }) {
             className="hover:text-[var(--color-accent)] transition-colors duration-300"
           >
             ホーム
+          </Link>
+
+          <Link
+            href="/history"
+            className="hover:text-[var(--color-accent)] transition-colors duration-300"
+          >
+            沿革
+          </Link>
+
+          <Link
+            href="/description"
+            className="hover:text-[var(--color-accent)] transition-colors duration-300"
+          >
+            事業内容
           </Link>
 
           <Link
