@@ -20,6 +20,7 @@ export default function Footer({ tenant }) {
           </h4>
           <ul className="space-y-2 text-sm">
             <li><Link href="/" className="hover:text-[var(--color-accent)] transition">ホーム</Link></li>
+            <li><Link href="/history" className="hover:text-[var(--color-accent)] transition">沿革</Link></li>
             <li><Link href="/about" className="hover:text-[var(--color-accent)] transition">会社概要</Link></li>
             <li><Link href="/contact" className="hover:text-[var(--color-accent)] transition">お問い合わせ</Link></li>
           </ul>

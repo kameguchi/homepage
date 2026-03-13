@@ -33,13 +33,6 @@ export default function Header({ tenant }) {
           </Link>
 
           <Link
-            href="/description"
-            className="hover:text-[var(--color-accent)] transition-colors duration-300"
-          >
-            事業内容
-          </Link>
-
-          <Link
             href="/about"
             className="hover:text-[var(--color-accent)] transition-colors duration-300"
           >
