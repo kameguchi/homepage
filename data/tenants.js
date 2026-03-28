@@ -23,6 +23,13 @@ export const tenants = [
       eyebrow: "Works",
       title: "実績紹介",
       description: "太陽光発電所の設計・施工・保守を通じて積み重ねてきた実績を、数値と具体例の両面からご紹介します。",
+      galleryTitle: "施工写真ギャラリー",
+      galleryLead: "実績紹介に関連する写真を横並びで掲載しています。",
+      galleryPhotos: [
+        { id: "ach-photo-1", src: "/company2.jpg", alt: "施工実績写真 1" },
+        { id: "ach-photo-2", src: "/company3.jpg", alt: "施工実績写真 2" },
+        { id: "ach-photo-3", src: "/company4.jpg", alt: "施工実績写真 3" }
+      ],
       stats: [
         {
           value: "50MW+",

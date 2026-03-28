@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getCurrentTenant } from "../lib/tenant";
+import AchievementPhotoStrip from "../components/AchievementPhotoStrip";
 
 const IconComponent = ({ icon }) => {
   const icons = {
@@ -49,10 +50,30 @@ const IconComponent = ({ icon }) => {
   return icons[icon] || icons.sun;
 };
 
+const AccessInfoIcon = ({ type }) => {
+  if (type === "train") {
+    return (
+      <svg className="w-7 h-7 text-[var(--color-primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="6" y="3" width="12" height="13" rx="2" />
+        <path d="M8 7h8M9 11h2m4 0h0" />
+        <path d="M8 16l-2 4m10-4l2 4M9 20h6" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg className="w-7 h-7 text-[var(--color-primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
+  );
+};
+
 export default async function Home() {
   const tenant = await getCurrentTenant();
   const achievementsSection = tenant.achievementsSection;
   const strengthsSection = tenant.strengthsSection;
+  const contactAccessSection = tenant.contactAccessPage;
 
   return (
     <div className="font-sans text-[var(--color-text)]">
@@ -209,6 +230,129 @@ export default async function Home() {
                     </p>
                   ))}
                 </div>
+
+                <AchievementPhotoStrip
+                  storageKey="achievementPhotos"
+                  title={achievementsSection.galleryTitle}
+                  lead={achievementsSection.galleryLead}
+                  initialPhotos={achievementsSection.galleryPhotos || []}
+                />
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {contactAccessSection ? (
+        <section className="relative overflow-hidden py-[var(--section-padding-y)] px-[var(--section-padding-x)] bg-[var(--color-surface)]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_15%,rgba(198,167,94,0.22),transparent_35%),radial-gradient(circle_at_84%_8%,rgba(15,23,42,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.65),rgba(245,245,244,0.8))]" />
+
+          <div className="relative max-w-7xl mx-auto rounded-[36px] border border-[var(--color-border)] bg-[var(--color-elevated)]/82 shadow-[0_22px_55px_rgba(15,23,42,0.14)] backdrop-blur-md overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(125deg,rgba(255,255,255,0.56)_0%,rgba(255,255,255,0.12)_38%,rgba(255,255,255,0.54)_100%)]" />
+
+            <div className="relative grid lg:grid-cols-[1.08fr_0.92fr] gap-0">
+              <div className="p-8 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-[var(--color-border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.84),rgba(255,255,255,0.64))]">
+                <div className="mb-8 flex items-end justify-between gap-4">
+                  <div>
+                    <p className="text-sm font-semibold tracking-[0.24em] uppercase text-[var(--color-accent)] mb-3">Access</p>
+                    <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)]">{contactAccessSection.accessTitle}</h2>
+                  </div>
+                  <div className="hidden md:block h-px w-24 bg-gradient-to-r from-[var(--color-accent)]/80 to-transparent" />
+                </div>
+
+                <div className="grid gap-4">
+                  {(contactAccessSection.accessCards || []).map((card) => (
+                    <article key={card.title} className="group grid grid-cols-[78px_1fr] rounded-2xl overflow-hidden border border-[var(--color-border)] bg-white/74 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+                      <div className="flex items-center justify-center border-r border-[var(--color-border)] bg-[linear-gradient(180deg,rgba(15,23,42,0.08),rgba(198,167,94,0.18))]">
+                        <AccessInfoIcon type={card.icon} />
+                      </div>
+                      <div className="p-5 md:p-6">
+                        <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">{card.title}</h3>
+                        <div className="space-y-1.5 text-[var(--color-text)]/92 leading-7">
+                          {(card.lines || []).map((line) => (
+                            <p key={line}>{line}</p>
+                          ))}
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                {contactAccessSection.map?.embedUrl ? (
+                  <section className="mt-6 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white/72 shadow-sm">
+                    <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--color-border)] bg-white/70">
+                      <h3 className="text-xl font-bold text-[var(--color-primary)]">{contactAccessSection.map.title || "Googleマップ"}</h3>
+                      <span className="text-xs font-semibold tracking-[0.18em] uppercase text-[var(--color-accent)]">Map</span>
+                    </div>
+                    <iframe
+                      src={contactAccessSection.map.embedUrl}
+                      title={contactAccessSection.map.title || "Googleマップ"}
+                      className="w-full h-72 md:h-80"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </section>
+                ) : null}
+              </div>
+
+              <div className="p-8 md:p-10 lg:p-12 bg-[linear-gradient(180deg,rgba(255,255,255,0.74),rgba(245,245,244,0.72))]">
+                <div className="grid grid-cols-1 gap-5 mb-8">
+                  {(contactAccessSection.infoColumns || []).map((column) => (
+                    <section key={column.title} className="rounded-2xl border border-[var(--color-border)] bg-white/74 p-5 md:p-6 shadow-sm">
+                      <div className="mb-4 pb-3 border-b border-[var(--color-border)]/60">
+                        <h3 className="text-2xl font-bold text-[var(--color-primary)]">{column.title}</h3>
+                      </div>
+                      <div className="space-y-3 text-base leading-8 text-[var(--color-text)]/92">
+                        {(column.items || []).map((item) => (
+                          <div key={`${column.title}-${item.label || item.value}`}>
+                            {item.label ? (
+                              <p>
+                                <span className="font-semibold">{item.label}</span>
+                                <span className="font-semibold"> : </span>
+                                {item.href ? (
+                                  <a href={item.href} className="font-semibold underline decoration-[var(--color-accent)] underline-offset-4 hover:text-[var(--color-primary)]">
+                                    {item.value}
+                                  </a>
+                                ) : (
+                                  <span className="font-medium">{item.value}</span>
+                                )}
+                              </p>
+                            ) : (
+                              <p className="font-medium">{item.value}</p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  ))}
+                </div>
+
+                <div className="space-y-5 rounded-2xl border border-[var(--color-border)] bg-white/66 p-6 md:p-7 shadow-sm">
+                  {(contactAccessSection.body || []).map((paragraph) => (
+                    <p key={paragraph} className="text-base md:text-lg leading-8 text-[var(--color-text)]/90">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-accent)] hover:text-[var(--color-primary)]"
+                  >
+                    アクセス・お問い合わせを見る
+                  </Link>
+                  {contactAccessSection.map?.linkUrl ? (
+                    <a
+                      href={contactAccessSection.map.linkUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] bg-white/76 px-6 py-3 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-white"
+                    >
+                      {contactAccessSection.map.linkLabel || "Googleマップで開く"}
+                    </a>
+                  ) : null}
+                </div>
+              </div>
             </div>
           </div>
         </section>
