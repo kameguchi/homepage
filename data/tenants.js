@@ -167,7 +167,7 @@ export const tenants = [
         ceo: "代表取締役",
         business: "事業内容"
       },
-      capital: "1,000万円",
+      capital: "100万円",
       profileImage: {
         src: "/company4.jpg",
         alt: ""

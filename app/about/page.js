@@ -57,7 +57,7 @@ export default async function About() {
                 <th className="text-left px-6 py-4 bg-[var(--color-surface)]">
                   {labels.capital || "資本金"}
                 </th>
-                <td className="px-6 py-4">{about.capital || "1,000万円"}</td>
+                <td className="px-6 py-4">{about.capital || "未設定"}</td>
               </tr>
               <tr className="border-b border-[var(--color-border)]">
                 <th className="text-left px-6 py-4 bg-[var(--color-surface)]">
