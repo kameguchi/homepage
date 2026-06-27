@@ -5,8 +5,8 @@ import { getCurrentTenant } from "../lib/tenant";
 import "./globals.css";
 
 export const metadata = {
-  title: "株式会社サンプル建設",
-  description: "地域密着の土木建築会社です"
+  title: "株式会社TOM",
+  description: "太陽光発電・蓄電池事業で持続可能な未来を創造する"
 };
 
 export const viewport = {

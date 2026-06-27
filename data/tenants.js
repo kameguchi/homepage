@@ -8,7 +8,7 @@ export const tenants = [
     phone: "03-1234-5678",
     address: "106-0032 東京都港区六本木6-1-20 六本木電機ビル7F",
     since: "2025年8月28日",
-    nameCeo: "上薗 斗夢",
+    nameCeo: "神薗 斗夢",
     // 既存の workDetails は互換性のため残すが新しい構造を追加
     workDetails1: "太陽光発電所EPC(設計・調達・施工)",
     workDetails2: "系統用蓄電池事業",
