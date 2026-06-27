@@ -8,7 +8,7 @@ export const tenants = [
     phone: "03-1234-5678",
     address: "106-0032 東京都港区六本木6-1-20 六本木電機ビル7F",
     since: "2025年8月28日",
-    nameCeo: "上薗 十夢",
+    nameCeo: "上薗 斗夢",
     // 既存の workDetails は互換性のため残すが新しい構造を追加
     workDetails1: "太陽光発電所EPC(設計・調達・施工)",
     workDetails2: "系統用蓄電池事業",
@@ -150,6 +150,29 @@ export const tenants = [
         "太陽光発電・蓄電池事業に関するご質問やプロジェクトのご相談など、どのようなことでもお気軽にお声がけください。経験豊富なスタッフが、お客様のニーズに合わせた最適なソリューションをご提案いたします。持続可能なエネルギー社会の実現に向けて、共に歩んでまいりましょう。"
       ]
     },
+    aboutPage: {
+      metadataTitle: "会社概要 | 株式会社TOM",
+      metadataDescription: "株式会社TOMの会社概要ページです。",
+      heroTitle: "会社概要",
+      heroLead: "地域社会に寄り添い、確かな品質で未来を築きます。",
+      heroImage: {
+        src: "/company2.jpg",
+        alt: "会社外観"
+      },
+      labels: {
+        companyName: "会社名",
+        address: "所在地",
+        founded: "設立",
+        capital: "資本金",
+        ceo: "代表取締役",
+        business: "事業内容"
+      },
+      capital: "1,000万円",
+      profileImage: {
+        src: "/company4.jpg",
+        alt: ""
+      }
+    },
     description: `株式会社TOMは、持続可能なエネルギー社会の実現に向けて、太陽光発電と蓄電池技術を核とした総合的なソリューションを提供しています。
 豊富な実績と確かな技術力により、お客様のニーズに最適な再生可能エネルギーシステムをご提案いたします。`,
     history: [
@@ -212,6 +235,29 @@ export const tenants = [
         "弊社オフィスは主要エリアからアクセスしやすい立地にあり、初回相談から具体的な要件整理まで丁寧に対応いたします。",
         "建築・施工に関するご相談はもちろん、プロジェクト初期の企画段階からでもお気軽にお問い合わせください。"
       ]
+    },
+    aboutPage: {
+      metadataTitle: "会社概要 | モダンビルド株式会社",
+      metadataDescription: "モダンビルド株式会社の会社概要ページです。",
+      heroTitle: "会社概要",
+      heroLead: "次世代の建築を、もっと身近に。",
+      heroImage: {
+        src: "/company2.jpg",
+        alt: "会社外観"
+      },
+      labels: {
+        companyName: "会社名",
+        address: "所在地",
+        founded: "設立",
+        capital: "資本金",
+        ceo: "代表取締役",
+        business: "事業内容"
+      },
+      capital: "1,000万円",
+      profileImage: {
+        src: "/company4.jpg",
+        alt: ""
+      }
     },
     theme: "modern"
   }
